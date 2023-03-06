@@ -1,6 +1,7 @@
 package com.forcepoint.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.forcepoint.dto.UrlCategories;
 import com.forcepoint.model.RootUrlCategories;
 import com.forcepoint.model.UrlCategory;
@@ -66,7 +67,7 @@ public class InterviewTest {
 
         RootUrlCategories rootUrlCategories = createUrlCategories(urlsByName);
 
-        new ObjectMapper().writeValue(new File("url_categories.json"), rootUrlCategories);
+        new ObjectMapper().configure(SerializationFeature.INDENT_OUTPUT, true).writeValue(new File("url_categories.json"), rootUrlCategories);
 
     }
 
